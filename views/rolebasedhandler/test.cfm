@@ -3,6 +3,12 @@
 
 <br /> 
 
+<dl>
+    <dt>user</dt><dd>#getInstance( 'requestStorage@cbstorages' ).get('cbauth__user').getusername()#</dd>
+    <dt>roles</dt><dd>#getInstance( 'requestStorage@cbstorages' ).get('cbauth__user').getroles()#</dd>
+    <dt>permissions</dt><dd>#getInstance( 'requestStorage@cbstorages' ).get('cbauth__user').getpermissions()#</dd>
+</dl>
+
 <cfdump var=#rc# label="rc"/>
 
 <br /><br />
