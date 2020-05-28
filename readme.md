@@ -25,5 +25,8 @@ in commandbox run  - server start
 
 first time running give it a few seconds to spin up
 
+to see the cbsecurity visualizer in your browser run {your app}/cbsecurity 
+
+
 
 

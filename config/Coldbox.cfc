@@ -118,29 +118,6 @@ component{
 				// You can define your security rules here or externally via a source
 				"rulesSource" : "json",
 				"rulesFile" : "config/security.json.cfm",
-				//"rules"							: "/config/security.json.cfm",
-				/**
-				"rules" :
-				[
-					{
-						"whitelist": "rulebasedhandler\.index",
-						"securelist": "^rulebasedhandler\..*",
-						"match": "event",
-						"roles": "",
-						"permissions": "view",
-						"redirect": "security.loginform",
-						"useSSL": false
-					},
-					{
-						"whitelist": "",
-						"securelist": "^shopping",
-						"match": "url",
-						"roles": "",
-						"permissions": "shop,checkout",
-						"redirect": "security.loginform",
-						"useSSL": true
-					}
-				], **/
 				// The validator is an object that will validate rules and annotations and provide feedback on either authentication or authorization issues.
 				"validator"						: "CBAuthValidator@cbsecurity",
 				// The WireBox ID of the authentication service to use in cbSecurity which must adhere to the cbsecurity.interfaces.IAuthService interface.
