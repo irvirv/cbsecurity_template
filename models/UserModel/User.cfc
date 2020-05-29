@@ -8,22 +8,26 @@ component scope="session" accessors="true" implements="cbsecurity.interfaces.IAu
 	property name="lastName";
 	property name="email";
 	property name="IPAddr";
-	property name="arrRoles" type="array" default="[]"; // note default is not true array but rather a string. Be sure to check if array when using.
-	property name="arrPermissions" type="array" default="[]"; // note default is not true array but rather a string. Be sure to check if array when using.
+	property name="arrRoles" type="array"; 
+	property name="arrPermissions" type="array";
     
 	
 	/**
 	* init
 	**/
 	function init(){
+		variables.arrRoles = [];
+		variables.arrPermissions = [];
+
 		return this;
 	}
+
 
 	/**
     * Return the unique identifier for the user
     **/
 	public function getId(){
-		return getMemberID();
+		return variables.memberID;
 	}
 
     /**
@@ -34,25 +38,22 @@ component scope="session" accessors="true" implements="cbsecurity.interfaces.IAu
     **/
     public boolean function hasPermission( required permission ){
 		// if is boolean then nothing really to check as we've already checked if logged in.  This is simple "secured" vs not (no roles or permissions).
-		//TODO fix check for boolean if they change passing in a boolean value for permission when event handler is simply "secured"
-		// any named permissions come in as a list so match that list with list user has
 		if( IsBoolean( arguments.permission ) ){
-			if( arguments.permission ){
-                return true;
-            }else{
-                return false;
-            }
+			return arguments.permission;
 		}
+		// any named permissions come in as a list so match that list with list user has
 		// if user has permissions check for existence of one passed in.
-		if( len( getPermissions() ) ){
+		if( len( variables.permissions ) ){
 			// array of permissions user has
-			var arrUserPerms = ListToArray(getPermissions());
-			// array of a list of permissions, one of which is needed
-			var arrNeededPerms = ListToArray(arguments.permission);
-			// any matches?
-			arrNeededPerms.retainAll(arrUserPerms);
-			// 1+ is success / 0 false
-			return arrayLen(arrNeededPerms);
+			if ( isSimpleValue( arguments.permission ) ) {
+				// array of a list of permissions, one of which is needed
+				arguments.permission = listToArray( arguments.permission );
+			}
+			return arguments.permission
+				.filter( function( item ) {
+					return ( variables.permissions.findNoCase( item ) );
+				} )
+				.len();
 		}else{
 			// no user permissions so not possible they have the one desired 
 			return false;
@@ -60,10 +61,10 @@ component scope="session" accessors="true" implements="cbsecurity.interfaces.IAu
 	}
 
     /**
-    * Shortcut to verify if the user is logged in or not.
+    * in example memberIDs are non-zero integers
     **/
     public boolean function isLoggedIn(){
-		if( isValid("integer",getMemberID()) ){
+		if( isValid("integer", variables.memberID ) && variables.memberID ){
 			return true;
 		}else{
 			return false;

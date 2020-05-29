@@ -17,15 +17,15 @@ To run app follow these steps -
 
 Create a test folder.
 
-In folder created using commandBox run - coldbox create app skeleton=https://github.com/irvirv/cbsecurity_template/archive/master.zip --installColdBox   
+Unzip this project in folder
 
-change directory in commandbox to subfolder created by above  - cd securecbauth
+Using commandbox in cmd prompt in folder you unzipped project run "install"  (no additional params required since you have a box.json file)
 
-in commandbox run  - server start
+Once installed run  - "server start"
 
-first time running give it a few seconds to spin up
+First time running give it a few seconds to spin up
 
-to see the cbsecurity visualizer in your browser run {your app}/cbsecurity 
+To see the cbsecurity visualizer in your browser browse to {your app}/cbsecurity subfolder or click "cbsecurity" under Installed Modules from homepage
 
 
 

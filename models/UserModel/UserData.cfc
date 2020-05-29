@@ -129,7 +129,7 @@ component output="false" singleton {
         return rsData;
     }
 
-     public query function GetByID( required memberID ){
+     public query function GetByID( required ID ){
         /** can't use this as QofQ does not support JOINS
         var rsData = queryExecute(
             "SELECT M.memberID, M.firstname, M.lastname, M.username, R.roleName, R.roleDescription, P.permissionName, P.permissionDescription
@@ -146,11 +146,11 @@ component output="false" singleton {
         );
         **/
         var rsData = queryExecute(
-            "SELECT memberID, firstname, lastname, username, roleName, roleDescription, permissionName, permissionDescription
+            "SELECT memberID, firstname, lastname, username, roleName [roles], roleDescription, permissionName [permissions], permissionDescription
             FROM tbl_resulting_member_perm_match
             WHERE memberID = :memberID", 
             {
-                memberID = {value=arguments.memberID, CFSQLType='cf_sql_integer'}
+                memberID = {value=arguments.ID, CFSQLType='cf_sql_integer'}
             },
             {dbtype = "query"} 
         );
