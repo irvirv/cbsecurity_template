@@ -28,5 +28,11 @@ First time running give it a few seconds to spin up
 To see the cbsecurity visualizer in your browser browse to {your app}/cbsecurity subfolder or click "cbsecurity" under Installed Modules from homepage
 
 
+In this app there is a folder called "alternates" that has a different version of the user server.  This behaves exactly the same but gets the 
+user info from a database (ms sql server).  There is a script in the "database" folder that will create this database along with the test users 
+as exist in the hard-wired version.  You'll need to figure out your own connection string but it's not hard and there is an example in the usesdata.cfc 
+that is downloaded as part of this.  Using the database version makes it a lot easier to play around with different users/role/permissions. 
+
+
 
 
