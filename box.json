@@ -1,11 +1,13 @@
 {
     "dependencies":{
+		"BCrypt":"^2.5.0+25",
         "cbmessagebox":"^3.1.0+46",
         "cbsecurity":"^2.5.0+94",
         "coldbox":"^5.6.2+1148",
         "redirectBack":"^1.2.1"
     },
     "installPaths":{
+		"BCrypt":"modules/BCrypt/",
         "cbmessagebox":"modules/cbmessagebox/",
         "cbsecurity":"modules/cbsecurity/",
         "coldbox":"coldbox/",

@@ -16,20 +16,15 @@ component singleton implements="cbsecurity.interfaces.IUserService" {
 
 
 	/**
-    * Verify if the incoming username/password are valid credentials.
-	* $$$$$$ This needs to use bcrypt in real life! 
+    * Verify if the incoming username/password are valid credentials and load user if valid.
     *
     * @username The username
     * @password The password
     **/
     boolean function isValidCredentials( required username, required password ){
-		var rsUserID = UserData.checkCredentials(
-    		loginUsername = arguments.userName,
-    		loginPassword = arguments.password 
-		);
-		if(  rsUserID.recordcount ){
+		if( UserData.CheckCredentials( arguments.userName, arguments.password ) ){
 			// populate user object
-			populateUserByID( rsUserID.ID );
+			populateUserByUsername( arguments.username );
 			return true;
 		}else{
 			return false;
@@ -69,7 +64,7 @@ component singleton implements="cbsecurity.interfaces.IUserService" {
 	* @username The unique username
 	* populates user object
 	**/
-	private function populateUserByUsername( required username ){
+	private function populateUserByUsername( required string username ){
 		var oUser = wirebox.getInstance("usermodel.User");
 		var rsUserInfo = UserData.GetByUserName(
 			username = arguments.username
@@ -79,8 +74,8 @@ component singleton implements="cbsecurity.interfaces.IUserService" {
 			username = rsUserInfo.username,
 			firstName = rsUserInfo.firstname,
 			lastName = rsUserInfo.lastname,
-			roles = ListRemoveDuplicates(valuelist(rsUserInfo.roles),",",true),
-			permissions = ListRemoveDuplicates(valuelist(rsUserInfo.permissions),",",true)
+			roles = ListRemoveDuplicates(valuelist(rsUserInfo.rolename),",",true),
+			permissions = ListRemoveDuplicates(valuelist(rsUserInfo.permissionName),",",true)
 		}
 		populator.populateFromStruct( target=oUser, memento=strUser, ignoreEmpty=true );
 	}
