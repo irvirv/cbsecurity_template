@@ -7,6 +7,13 @@ display
 component extends="coldbox.system.EventHandler" secured{
 
 	
+    /**
+	* prehandler 
+	**/
+	public function preHandler(event,rc,prc,action){
+		// get user object and set in prc
+        prc.oUser = auth().getuser();
+	}
     
     // Default Action (secured)
 	function index(event,rc,prc){

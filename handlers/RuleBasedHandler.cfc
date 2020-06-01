@@ -5,6 +5,14 @@ In this sample handler we're using the rules JSON in coldbox.cfc to secure
 component extends="coldbox.system.EventHandler"{
 
 	
+    /**
+	* prehandler 
+	**/
+	public function preHandler(event,rc,prc,action){
+		// get user object and set in prc
+        prc.oUser = auth().getuser();
+	}
+    
     
     // Default Action (secured)
 	function index(event,rc,prc){

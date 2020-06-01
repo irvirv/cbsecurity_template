@@ -4,9 +4,9 @@
 <br /> 
 
 <dl>
-    <dt>user</dt><dd>#getInstance( 'requestStorage@cbstorages' ).get('cbauth__user').getusername()#</dd>
-    <dt>roles</dt><dd>#getInstance( 'requestStorage@cbstorages' ).get('cbauth__user').getroles()#</dd>
-    <dt>permissions</dt><dd>#getInstance( 'requestStorage@cbstorages' ).get('cbauth__user').getpermissions()#</dd>
+    <dt>user</dt><dd>#prc.oUser.getusername()#</dd>
+    <dt>roles</dt><dd>#prc.oUser.getroles()#</dd>
+    <dt>permissions</dt><dd>#prc.oUser.getpermissions()#</dd>
 </dl>
 
 <cfdump var=#rc# label="rc"/>
