@@ -37,7 +37,7 @@ component{
 			invalidHTTPMethodHandler 	= "",
 			exceptionHandler			= "main.onException",
 			invalidEventHandler			= "",
-			customErrorTemplate			= "/coldbox/system/includes/BugReport.cfm",
+			customErrorTemplate			= "/coldbox/system/exceptions/Whoops.cfm",
 
 			//Application Aspects
 			handlerCaching 			= false,

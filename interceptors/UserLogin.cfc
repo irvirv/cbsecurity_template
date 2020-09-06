@@ -12,21 +12,21 @@ component{
 	 * Listen to module loadings, so we can do module rule registrations
 	 *
 	 * @event
-	 * @interceptData
+	 * @data
 	 * @rc
 	 * @prc
 	 * @buffer
 	 */
 	boolean function postAuthentication(
 		event,
-		interceptData,
+		data,
 		rc,
 		prc,
 		buffer
 	){
 		var hello = "hi";
 		//writedump(hello);
-		//writedump(interceptData); abort;
+		//writedump(data); abort;
 		return 1;
 	}
 	
