@@ -5,19 +5,6 @@ In this sample handler we're using the rules JSON in coldbox.cfc to secure
 component extends="coldbox.system.EventHandler"{
 
 	
-    /**
-	* prehandler 
-	**/
-	public function preHandler(event,rc,prc,action){
-		// get user object and set in prc
-		// catch not logged in here since rules based validation doesn't redir on its own like annotation based does
-        try{
-			prc.oUser = auth().getuser();
-		}catch( "NoUserLoggedIn" e){
-			relocate("security.loginform");
-		}
-	}
-    
     
     // Default Action (secured)
 	function index(event,rc,prc){
@@ -26,14 +13,20 @@ component extends="coldbox.system.EventHandler"{
 	}
 
 
-     // generic secured action
+    // generic secured action
+	/** oUser is set here (per event) rather than prehandler as that would require a user for whole handler 
+		which we might not want.  For instance, 'index' above doesn't require a user logged in but we'd be getting one 
+		so would throw an error. 
+	**/
     function test1(event,rc,prc){
-        event.setView("rolebasedhandler/test");
+		prc.oUser = auth().getuser();
+		event.setView("rolebasedhandler/test");
 	}
 
     // secured action requires "admin" permission
     function test2(event,rc,prc) secured="admin"{
-        event.setView("rolebasedhandler/test");
+        prc.oUser = auth().getuser();
+		event.setView("rolebasedhandler/test");
 	}
 
 
