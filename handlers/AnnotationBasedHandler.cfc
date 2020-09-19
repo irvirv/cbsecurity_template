@@ -1,7 +1,6 @@
 /** 
-In this sample handler the component itself is marked as secured so all events are secured. In 
-addition event "test3" requires a additional permission called "writer" (could be named anything) in order to 
-display 
+In this sample handler the component itself is marked as secured so all events are secured, meaning must be logged in. In 
+addition events test2 thru test5 require additional permission(s) in order to display 
 **/
 
 component extends="coldbox.system.EventHandler" secured{

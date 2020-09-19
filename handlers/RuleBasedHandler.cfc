@@ -10,7 +10,12 @@ component extends="coldbox.system.EventHandler"{
 	**/
 	public function preHandler(event,rc,prc,action){
 		// get user object and set in prc
-        prc.oUser = auth().getuser();
+		// catch not logged in here since rules based validation doesn't redir on its own like annotation based does
+        try{
+			prc.oUser = auth().getuser();
+		}catch( "NoUserLoggedIn" e){
+			relocate("security.loginform");
+		}
 	}
     
     
