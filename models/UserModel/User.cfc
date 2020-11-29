@@ -51,7 +51,7 @@ component scope="session" accessors="true" implements="cbsecurity.interfaces.IAu
 			}
 			return arguments.permission
 				.filter( function( item ) {
-					return ( variables.permissions.findNoCase( item ) );
+					return ( variables.permissions.ListFindNoCase( item ) );
 				} )
 				.len();
 		}else{
