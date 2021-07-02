@@ -1,7 +1,7 @@
 {
     "dependencies":{
-        "BCrypt":"^2.5.0+25",
-        "cbmessagebox":"^3.1.0+46",
+        "BCrypt":"^3.0.1+34",
+        "cbmessagebox":"^4.0.0+58",
         "cbsecurity":"^2.5.0+94",
         "coldbox":"^6.0.0+1296",
         "redirectBack":"^1.2.1"
