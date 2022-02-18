@@ -13,7 +13,7 @@
 
 <br /><br />
 
-<cfdump var=#prc# label="prc"/>
+<cfdump var=#prc.ouser# label="oUser"/>
 
 <br /><br />
 
