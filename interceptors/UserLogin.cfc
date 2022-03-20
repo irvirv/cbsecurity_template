@@ -31,6 +31,34 @@ component{
 	}
 	
 
+	/**
+	* called by cbsecurity if a user is logged in but authorization has failed (wrong permission)
+	*  uncomment and reinit to see it fire
+	**/
+	function cbSecurity_onInvalidAuthorization(
+		event,
+		data,
+		rc,
+		prc,
+		buffer
+	){
+		//writedump(arguments); abort;
+	}
+
+	/**
+	* called by cbsecurity if a user's login attempt fails
+	*  uncomment and reinit to see it fire
+	**/
+	function cbSecurity_onInvalidAuthentication(
+		event,
+		data,
+		rc,
+		prc,
+		buffer
+	){
+		//writedump(arguments); abort;
+	}
+
 	
 }
 

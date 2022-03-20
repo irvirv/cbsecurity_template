@@ -1,0 +1,36 @@
+{
+    "name":"BCrypt",
+    "version":"3.0.1+34",
+    "location":"https://downloads.ortussolutions.com/ortussolutions/coldbox-modules/bcrypt/3.0.1/bcrypt-3.0.1.zip",
+    "author":"Ortus Solutions <info@ortussolutions.com>",
+    "homepage":"https://github.com/coldbox-modules/bcrypt",
+    "documentation":"https://github.com/coldbox-modules/bcrypt",
+    "repository":{
+        "type":"git",
+        "url":"https://github.com/coldbox-modules/bcrypt"
+    },
+    "bugs":"https://ortussolutions.atlassian.net/secure/RapidBoard.jspa?projectKey=CCM",
+    "slug":"BCrypt",
+    "shortDescription":"A ColdBox module for BCrypt. Creates cryptographically strong (and slow) password hashes.",
+    "type":"modules",
+    "contributors":[
+        "Seth Feldkamp",
+        "Brad Wood <bdw429s@gmail.com>",
+        "Luis Majano <lmajano@ortussolutions.com>",
+        "Jon Clausen <jclausen@ortussolutions.com>"
+    ],
+    "ignore":[
+        "**/.*",
+        "tests",
+        "*/.md"
+    ],
+    "dependencies":{
+        "cbjavaloader":"^2.0.0"
+    },
+    "scripts":{
+        "release":"recipe build/release.boxr",
+        "format":"cfformat run *.cfc,models/,test-harness/tests/specs",
+        "format:watch":"cfformat watch *.cfc,models/,test-harness/tests/specs ./.cfformat.json",
+        "format:check":"cfformat check *.cfc,models/,test-harness/tests/specs"
+    }
+}

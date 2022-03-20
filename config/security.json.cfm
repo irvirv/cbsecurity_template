@@ -5,7 +5,6 @@
         "match": "event",
         "roles": "",
         "permissions": "view",
-        "redirect": "security.loginform",
         "useSSL": false
     },
     {

@@ -1,0 +1,50 @@
+{
+    "name":"cbauth",
+    "version":"5.0.7",
+    "location":"forgeboxStorage",
+    "author":[
+        "Eric Peterson",
+        "Mike Burt",
+        "Luis Majano"
+    ],
+    "repository":{
+        "type":"git",
+        "URL":"https://github.com/coldbox-modules/cbauth"
+    },
+    "slug":"cbauth",
+    "shortDescription":"Authentication services for ColdBox Applications.",
+    "type":"modules",
+    "keywords":[
+        "authentication",
+        "sessions"
+    ],
+    "private":false,
+    "license":[
+        {
+            "type":"MIT",
+            "URL":"https://raw.githubusercontent.com/coldbox-modules/cbauth/master/LICENSE"
+        }
+    ],
+    "dependencies":{
+        "cbstorages":"^2.0.0"
+    },
+    "devDependencies":{
+        "testbox":"^3.0.0"
+    },
+    "installPaths":{
+        "testbox":"testbox/",
+        "cbstorages":"modules/cbstorages/"
+    },
+    "scripts":{
+        "format":"cfformat run models/**/*.cfc,tests/specs/**/*.cfc --overwrite",
+        "format:check":"cfformat check models/**/*.cfc,tests/specs/**/*.cfc --verbose",
+        "generateAPIDocs":"rm .tmp --recurse --force && docbox generate mapping=cbauth excludes=tests|ModuleConfig strategy-outputDir=.tmp/apidocs strategy-projectTitle=cbauth"
+    },
+    "ignore":[
+        "**/.*",
+        "test",
+        "tests",
+        "docs/**/*.*",
+        "server.json"
+    ]
+}

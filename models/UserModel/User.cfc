@@ -59,6 +59,7 @@ component scope="session" accessors="true" implements="cbsecurity.interfaces.IAu
 			return false;
 		}	
 	}
+	
 
     /**
     * in example userIDs are non-zero integers

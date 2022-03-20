@@ -6,14 +6,11 @@ component extends="coldbox.system.EventHandler"{
 		event.setView("main/index");
 	}
 
-	// Do something
-	function doSomething(event,rc,prc){
-		relocate( "main.index" );
-	}
 
 	// not authorized
 	function onInvalidAuthorization(event,rc,prc){
-		event.setView("main/onInvalidAuthorization");
+		prc.oUser = auth().getuser();
+		//event.setView("main/onInvalidAuthorization");
 	}
 
 	/************************************** IMPLICIT ACTIONS *********************************************/

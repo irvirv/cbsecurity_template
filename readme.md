@@ -8,7 +8,7 @@ The example users to log in with are  -
  
  - billy_tech (has admin permission)
  
- - jane_admin (has all permissions  - view, create, update, and admin). 
+ - jane_admin (has all permissions  - view, create, update, and modify). 
  
  All users have password of "test".
 
@@ -25,13 +25,7 @@ Once installed run  - "server start"
 
 First time running give it a few seconds to spin up
 
-To see the cbsecurity visualizer in your browser browse to {your app}/cbsecurity subfolder or click "cbsecurity" under Installed Modules from homepage
-
-
-In this app there is a folder called "alternates" that has a different version of the userservice.  This behaves exactly the same as the hard-wired version 
-but gets the user info from a database (MS SQL Server).  There is a script in the "database" folder that will create this database along with the test users 
-as exist in the hard-wired version.  You'll need to figure out your own connection string but it's not hard and there is an example in the userdata.cfc 
-that is downloaded as part of this.  Using the database version makes it a lot easier to play around with different users/roles/permissions. 
+To see the cbsecurity visualizer in your browser browse to {your app}/cbsecurity subfolder or click "cbsecurity" from homepage.
 
 
 

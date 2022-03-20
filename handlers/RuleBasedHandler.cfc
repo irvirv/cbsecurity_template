@@ -6,10 +6,8 @@ component extends="coldbox.system.EventHandler"{
 
 	
     
-    // Default Action (secured)
+    // Default Action (not secured per security.json.cfm)
 	function index(event,rc,prc){
-		prc.welcomeMessage = "Welcome to ColdBox!";
-		event.setView("rolebasedhandler/index");
 	}
 
 
@@ -20,13 +18,11 @@ component extends="coldbox.system.EventHandler"{
 	**/
     function test1(event,rc,prc){
 		prc.oUser = auth().getuser();
-		event.setView("rolebasedhandler/test");
 	}
 
-    // secured action requires "admin" permission
-    function test2(event,rc,prc) secured="admin"{
+    // secured action additionally requires "modify" permission
+    function test2(event,rc,prc) secured="modify"{
         prc.oUser = auth().getuser();
-		event.setView("rolebasedhandler/test");
 	}
 
 

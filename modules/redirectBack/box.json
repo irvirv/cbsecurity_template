@@ -1,0 +1,38 @@
+{
+    "name":"redirectBack",
+    "version":"1.2.2",
+    "author":"Eric Peterson",
+    "location":"elpete/redirectBack#v1.2.2",
+    "homepage":"https://github.com/elpete/redirectBack",
+    "documentation":"",
+    "repository":{
+        "type":"git",
+        "URL":"https://github.com/elpete/redirectBack"
+    },
+    "bugs":"https://github.com/elpete/redirectBack/issues",
+    "slug":"redirectBack",
+    "shortDescription":"Caches the last request in the flash scope to give easy redirects back",
+    "type":"modules",
+    "keywords":[
+        "svg",
+        "icons",
+        "coldbox"
+    ],
+    "private":false,
+    "license":[
+        {
+            "type":"MIT",
+            "URL":"https://raw.githubusercontent.com/elpete/redirectBack/master/LICENSE"
+        }
+    ],
+    "scripts":{
+        "postVersion":"package set location='elpete/redirectBack#v`package version`'",
+        "onRelease":"publish",
+        "postPublish":"!git push && git push --tags"
+    },
+    "ignore":[
+        "**/.*",
+        "test",
+        "tests"
+    ]
+}

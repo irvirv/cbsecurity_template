@@ -109,12 +109,12 @@ component{
 			cbSecurity : {
 				// The global invalid authentication event or URI or URL to go if an invalid authentication occurs
 				"invalidAuthenticationEvent"    : "security.loginform",
-				// Default Auhtentication Action: override or redirect when a user has not logged in
-				//"defaultAuthenticationAction"	: "redirect",
+				// Default Authentication Action: override or redirect when a user has not logged in
+				"defaultAuthenticationAction"	: "redirect",
 				// The global invalid authorization event or URI or URL to go if an invalid authorization occurs
 				"invalidAuthorizationEvent"		: "main.onInvalidAuthorization",
 				// Default Authorization Action: override or redirect when a user does not have enough permissions to access something
-				//"defaultAuthorizationAction"	: "redirect",
+				"defaultAuthorizationAction"	: "redirect",
 				// You can define your security rules here or externally via a source
 				"rulesSource" : "json",
 				"rulesFile" : "config/security.json.cfm",
