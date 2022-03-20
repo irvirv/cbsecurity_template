@@ -6,7 +6,7 @@ The example users to log in with are  -
 
  - sally_prof (has view, update and create permissions)
  
- - billy_tech (has admin permission)
+ - billy_tech (has modify permission)
  
  - jane_admin (has all permissions  - view, create, update, and modify). 
  

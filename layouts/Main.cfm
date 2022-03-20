@@ -118,9 +118,9 @@
 									<li><a class="dropdown-item"
 											href="#event.buildLink('rulebasedhandler.index')#">default (rulebasedhandler.index)</a></li>
 									<li><a class="dropdown-item" 
-                      href="#event.buildLink('rulebasedhandler.test1')#">test one</a></li>
+                      href="#event.buildLink('rulebasedhandler.test1')#">security.json.cfm rule</a></li>
 									<li><a class="dropdown-item"
-											href="#event.buildLink('rulebasedhandler.test2')#">modify</a></li>
+											href="#event.buildLink('rulebasedhandler.test2')#">rule plus modify annotation</a></li>
 								</ul>
 							</li>
 							<li class="nav-item">

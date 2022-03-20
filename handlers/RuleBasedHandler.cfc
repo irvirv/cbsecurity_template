@@ -11,11 +11,7 @@ component extends="coldbox.system.EventHandler"{
 	}
 
 
-    // generic secured action
-	/** oUser is set here (per event) rather than prehandler as that would require a user for whole handler 
-		which we might not want.  For instance, 'index' above doesn't require a user logged in but we'd be getting one 
-		so would throw an error. 
-	**/
+    // generic secured action based on rule in security.json.cfm
     function test1(event,rc,prc){
 		prc.oUser = auth().getuser();
 	}
