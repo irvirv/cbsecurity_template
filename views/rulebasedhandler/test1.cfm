@@ -42,8 +42,8 @@ so fails that one. Access will be denied.
 <p>
 
     {
-        "whitelist": "rulebasedhandler\b.index",
-        "securelist": "^rulebasedhandler\b..*",
+        "whitelist": "rulebasedhandler\\.index",
+        "securelist": "^rulebasedhandler\\..*",
         "match": "event",
         "roles": "",
         "permissions": "view",

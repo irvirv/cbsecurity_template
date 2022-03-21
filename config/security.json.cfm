@@ -1,7 +1,7 @@
 [
     {
-        "whitelist": "rulebasedhandler\b.index",
-        "securelist": "^rulebasedhandler\b..*",
+        "whitelist": "rulebasedhandler\\.index",
+        "securelist": "^rulebasedhandler\\..*",
         "match": "event",
         "roles": "",
         "permissions": "view",
