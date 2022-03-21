@@ -1,8 +1,7 @@
 component singleton implements="cbsecurity.interfaces.IUserService" {
 	
     
-    property name="UserData" inject="id:UserModel.UserData";
-	property name="idleTimeout" inject="coldbox:setting:idleTimeout";
+    property name="UserData" inject="id:UserModel.UserDataACF"; // can be ACF or Lucee version.  Just a difference in QofQ capabilities 
 	property name="wirebox" inject="wirebox";
 	property name="populator" inject="wirebox:populator";
 	

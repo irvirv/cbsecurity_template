@@ -41,8 +41,8 @@ sure when I would use something like this in real life but it seems like it coul
 <p>
 
     {
-        "whitelist": "rulebasedhandler\.index",
-        "securelist": "^rulebasedhandler\..*",
+        "whitelist": "rulebasedhandler\b.index",
+        "securelist": "^rulebasedhandler\b..*",
         "match": "event",
         "roles": "",
         "permissions": "view",

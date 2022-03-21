@@ -91,7 +91,7 @@ component output="false" singleton {
             // user found - return match success/fail on password entered
             try{
                 return BCrypt.checkPassword( arguments.password, rsData.password );
-            }catch(any){
+            }catch(any e){
                 // this is here because if the value stored in database isn't a valid bcrypt hash then BCrypt.checkPassword throws an error rather 
                 // than returning false. For instance an empty string or something....
                 // probably should log this
