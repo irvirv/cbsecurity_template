@@ -53,7 +53,7 @@ component{
 			maxPasswordLength = 32,
 			maxUserNameLength = 50
 		};
-		
+
 		// environment settings, create a detectEnvironment() method to detect it yourself.
 		// create a function with the name of the environment so it can be executed if that environment is detected
 		// the value of the environment is a list of regex patterns to match the cgi.http_host.
@@ -99,48 +99,55 @@ component{
 				properties={}
 			}
 		];
-		
+
 		// module setting overrides
 		moduleSettings = {
 			cbAuth: {
-				userServiceClass: "Usermodel.UserService"
+				userServiceClass: "models.Usermodel.UserService"
 			},
 			// CB Security
 			cbSecurity : {
-				// The global invalid authentication event or URI or URL to go if an invalid authentication occurs
-				"invalidAuthenticationEvent"    : "security.loginform",
-				// Default Authentication Action: override or redirect when a user has not logged in
-				"defaultAuthenticationAction"	: "redirect",
-				// The global invalid authorization event or URI or URL to go if an invalid authorization occurs
-				"invalidAuthorizationEvent"		: "main.onInvalidAuthorization",
-				// Default Authorization Action: override or redirect when a user does not have enough permissions to access something
-				"defaultAuthorizationAction"	: "redirect",
-				// You can define your security rules here or externally via a source
-				"rulesSource" : "json",
-				"rulesFile" : "config/security.json.cfm",
-				// The validator is an object that will validate rules and annotations and provide feedback on either authentication or authorization issues.
-				"validator"						: "CBAuthValidator@cbsecurity",
-				// The WireBox ID of the authentication service to use in cbSecurity which must adhere to the cbsecurity.interfaces.IAuthService interface.
-				"authenticationService"  		: "authenticationService@cbauth",
-				// WireBox ID of the user service to use
-				//"userService"             		: "",
-				// The name of the variable to use to store an authenticated user in prc scope if using a validator that supports it.
-				//"prcUserVariable"         		: "oCurrentUser",
-				// Use regular expression matching on the rule match types
-				"useRegex" 						: true,
-				// Force SSL for all relocations
-				"useSSL"						: false,
-				// Auto load the global security firewall
-				"autoLoadFirewall"				: true,
-				// Activate handler/action based annotation security
-				"handlerAnnotationSecurity"		: true,
-				// Activate security rule visualizer, defaults to false by default
-				"enableSecurityVisualizer"		: true
+				visualizer : {
+					"enabled"      : false,
+					"secured"      : false,
+					"securityRule" : {}
+				},
+				firewall : {
+					// Auto load the global security firewall automatically, else you can load it a-la-carte via the Security interceptor
+					"autoLoadFirewall"            : true,
+					// The Global validator is an object that will validate the firewall rules and annotations and provide feedback on either authentication or authorization issues.
+					"validator"                   : "CBAuthValidator@cbsecurity",
+					"authenticationService" : "authenticationService@cbauth",
+					// Activate handler/action based annotation security
+					"handlerAnnotationSecurity"   : true,
+					// The global invalid authentication event or URI or URL to go if an invalid authentication occurs
+					"invalidAuthenticationEvent"    : "security.loginform",
+					// Default Auhtentication Action: override or redirect when a user has not logged in
+					"defaultAuthenticationAction" : "redirect",
+					// The global invalid authorization event or URI or URL to go if an invalid authorization occurs
+					//"invalidAuthorizationEvent"   : "security.notAuthorized", original
+					"invalidAuthorizationEvent"		: "main.onInvalidAuthorization",
+					// Default Authorization Action: override or redirect when a user does not have enough permissions to access something
+					"defaultAuthorizationAction"  : "redirect",
+						// Firewall database event logs.
+					"logs" : {
+						"enabled"    : false,
+						"table"      : "cbsecurity_logs",
+						"autoCreate" : false
+					},
+					"rules" : {
+						"useRegex" : true,
+						"defaults" :{ name : "" },
+						"provider" : {
+							"source" : "config/security.json.cfm"
+						}
+					}
+				}
 			}
 		};
 
 		/*
-		
+
 		// flash scope configuration
 		flash = {
 			scope = "session,client,cluster,ColdboxCache,or full path",

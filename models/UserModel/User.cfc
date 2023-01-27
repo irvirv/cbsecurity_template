@@ -8,10 +8,10 @@ component scope="session" accessors="true" implements="cbsecurity.interfaces.IAu
 	property name="lastName";
 	property name="email";
 	property name="IPAddr";
-	property name="arrRoles" type="array"; 
+	property name="arrRoles" type="array";
 	property name="arrPermissions" type="array";
-    
-	
+
+
 	/**
 	* init
 	**/
@@ -55,11 +55,41 @@ component scope="session" accessors="true" implements="cbsecurity.interfaces.IAu
 				} )
 				.len();
 		}else{
-			// no user permissions so not possible they have the one desired 
+			// no user permissions so not possible they have the one desired
 			return false;
-		}	
+		}
 	}
-	
+
+		/**
+    * Verify if the user has passed in role
+    *
+    * @role role to check for access
+    *
+    **/
+    public boolean function hasRole( required role ){
+		// if is boolean then nothing really to check as we've already checked if logged in.  This is simple "secured" vs not (no roles or permissions).
+		if( IsBoolean( arguments.role ) ){
+			return arguments.role;
+		}
+		// any named role come in as a list so match that list with list user has
+		// if user has role check for existence of one passed in.
+		if( len( variables.role ) ){
+			// array of role user has
+			if ( isSimpleValue( arguments.role ) ) {
+				// array of a list of roles, one of which is needed
+				arguments.role = listToArray( arguments.role );
+			}
+			return arguments.role
+				.filter( function( item ) {
+					return ( variables.roles.ListFindNoCase( item ) );
+				} )
+				.len();
+		}else{
+			// no user permissions so not possible they have the one desired
+			return false;
+		}
+	}
+
 
     /**
     * in example userIDs are non-zero integers
@@ -72,5 +102,5 @@ component scope="session" accessors="true" implements="cbsecurity.interfaces.IAu
 		}
 	}
 
-	
+
 }

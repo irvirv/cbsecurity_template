@@ -1,10 +1,9 @@
-# v5.0.7
-## 22 Jun 2021 — 20:24:55 UTC
+# v6.0.1
+## 19 Dec 2022 — 17:15:32 UTC
 
 ### other
 
-+ __\*:__ feat: Add onInvalidCredentials to the customInterceptionPoints
- ([f717586](https://github.com/coldbox-modules/cbauth/commit/f71758627c96be6fd49271fce07d1164d6394e38))
++ __\*:__ chore: Update interception calls to latest cb7 standards of announce() ([1f2c2d3](https://github.com/coldbox-modules/cbauth/commit/1f2c2d31558333312f1d35e034ab20cda26f4fd2))
 
 
 # v5.0.3

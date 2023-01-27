@@ -11,7 +11,7 @@ component {
 	this.author      = "Ortus Solutions";
 	this.webURL      = "https://www.ortussolutions.com";
 	this.description = "Provides a collection of facade storages for ColdFusion and distributed caching";
-	this.version     = "2.6.1+7";
+	this.version     = "3.0.0+13";
 	this.cfmapping   = "cbstorages";
 
 	/**

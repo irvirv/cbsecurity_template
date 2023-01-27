@@ -1,19 +1,19 @@
 [
     {
         "whitelist": "rulebasedhandler\\.index",
-        "securelist": "^rulebasedhandler\\..*",
+        "securelist": "rulebasedhandler\\.test2",
         "match": "event",
+		"action": "redirect",
+        "roles": "",
+        "permissions": "modify",
+        "useSSL": false
+    },
+	{
+        "securelist": "^rulebasedhandler\\.*",
+        "match": "event",
+		"action": "redirect",
         "roles": "",
         "permissions": "view",
         "useSSL": false
-    },
-    {
-        "whitelist": "",
-        "securelist": "^shopping",
-        "match": "url",
-        "roles": "",
-        "permissions": "shop,checkout",
-        "redirect": "security.loginform",
-        "useSSL": true
     }
 ]
